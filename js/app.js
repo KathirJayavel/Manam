@@ -460,12 +460,36 @@ class App {
 
         <div class="video-container-card clean-frame">
           <div class="video-header-badge">
-            <span class="video-tag">🎬 ${video.sectionBadge}</span>
-            <span class="video-live-badge">● Official Film</span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="video-tag">🎬 ${video.sectionBadge}</span>
+              <span class="video-live-badge">● Official Film</span>
+            </div>
+            <div class="video-theater-tag">
+              <span style="font-size: 0.75rem; color: var(--color-gold-300); letter-spacing: 0.05em;">Pure Cow Ghee Journey</span>
+            </div>
           </div>
 
-          <!-- Clean Smooth Video Container -->
+          <!-- Clean Smooth Video Container (Widescreen 1040px Theater) -->
           <div class="video-screen-ratio clean-video-aspect" id="video-player-frame">
+            <!-- Dynamic ambient background layer to fill the wide wings with matching golden warmth -->
+            <div class="video-ambient-backdrop-fill" style="background-image: url('${video.posterImage}');" aria-hidden="true"></div>
+            
+            <!-- Synchronized Ambient Video Layer (plays softly blurred in wide background) -->
+            <video 
+              id="ambient-mirror-video"
+              class="video-ambient-mirror"
+              muted 
+              playsinline 
+              loop
+              preload="auto"
+              aria-hidden="true"
+            >
+              <source src="${video.videoUrl}" type="video/mp4">
+            </video>
+
+            <div class="video-stage-dimmer" aria-hidden="true"></div>
+
+            <!-- Primary sharp, unstretched, enlarged foreground video -->
             <video 
               id="brand-story-video"
               controls 
@@ -496,6 +520,19 @@ class App {
     `;
 
     section.innerHTML = videoMarkup;
+
+    // Synchronize ambient background layer with main video playback
+    const mainVid = document.getElementById('brand-story-video');
+    const ambientVid = document.getElementById('ambient-mirror-video');
+    if (mainVid && ambientVid) {
+      mainVid.addEventListener('play', () => {
+        ambientVid.currentTime = mainVid.currentTime;
+        ambientVid.play().catch(() => {});
+      });
+      mainVid.addEventListener('pause', () => ambientVid.pause());
+      mainVid.addEventListener('seeking', () => { ambientVid.currentTime = mainVid.currentTime; });
+      mainVid.addEventListener('ended', () => ambientVid.pause());
+    }
   }
 
   // ---------------------------------------------------------------------------
