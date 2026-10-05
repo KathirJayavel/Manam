@@ -1,5 +1,5 @@
 /* ==============================================================================
-   MANAM DAIRY & FOODS — DESIGN SYSTEM & MAIN STYLESHEET
+   GOKULA AMUDHAM TRADITIONAL GHEE — DESIGN SYSTEM & MAIN STYLESHEET
    Aesthetic: Warm cream, deep earthy brown, ghee-gold accents, dark temple green
    Typography: Cinzel / Playfair Display (Serif) + Plus Jakarta Sans (Sans-serif)
    Mobile-First Architecture
@@ -51,6 +51,12 @@
   --color-error: #B91C1C;
   --color-border: #E8DED3;
   --color-border-gold: rgba(197, 155, 39, 0.35);
+
+  /* Gokula Amudham Royal Maroon & Sacred Heritage Tones */
+  --color-maroon: #7A1C1C;
+  --color-maroon-dark: #581010;
+  --color-maroon-light: #9B2C2C;
+  --color-maroon-tint: #FDF5F5;
 
   /* Typography */
   --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
@@ -233,11 +239,12 @@ a {
 
 .brand-name-title {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  color: var(--color-brown-900);
-  letter-spacing: 0.12em;
+  color: var(--color-maroon);
+  letter-spacing: 0.08em;
   line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .brand-subtext {
@@ -784,7 +791,8 @@ a {
 
 .video-theater-wrapper {
   position: relative;
-  max-width: 1040px;
+  max-width: 480px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -860,7 +868,8 @@ a {
 .video-screen-ratio.clean-video-aspect {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
+  max-height: 75vh;
   background-color: #0A0503;
   overflow: hidden;
   display: flex;
@@ -1038,12 +1047,15 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 @media (min-width: 960px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 

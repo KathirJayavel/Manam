@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * MANAM WHATSAPP ORDER SYSTEM
+ * GOKULA AMUDHAM — WHATSAPP ORDER SYSTEM
  * ==============================================================================
  * Validates customer delivery details and constructs the formatted
  * WhatsApp order message according to the exact brand specification.
@@ -10,7 +10,7 @@
 import { SITE_CONFIG } from './site-config.js';
 import { cart } from './cart.js';
 
-const CUSTOMER_STORAGE_KEY = 'manam_customer_details_v1';
+const CUSTOMER_STORAGE_KEY = 'gokula_amudham_customer_details_v1';
 
 class WhatsAppOrderSystem {
   constructor() {
@@ -269,7 +269,7 @@ class WhatsAppOrderSystem {
 
   openDirectChat() {
     const whatsappNum = SITE_CONFIG.brand.whatsappNumber;
-    const msg = `Hello ${SITE_CONFIG.brand.name}! I would like to know more about your Pure Cow Ghee and Uthukuli Butter.`;
+    const msg = `Hello ${SITE_CONFIG.brand.name}! I would like to know more about your Traditional Cow Ghee.`;
     const waUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(msg)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   }

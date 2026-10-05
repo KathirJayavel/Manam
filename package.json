@@ -1,9 +1,9 @@
 {
-  "name": "manam-dairy-foods",
+  "name": "gokula-amudham",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Premium South Indian Cow Ghee & Uthukuli Butter Website for MANAM",
+  "description": "Traditional Ghee Website for Gokula Amudham",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

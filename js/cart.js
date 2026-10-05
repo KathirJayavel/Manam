@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * MANAM SHOPPING CART ENGINE
+ * GOKULA AMUDHAM — SHOPPING BASKET ENGINE
  * ==============================================================================
  * Handles cart state, localStorage persistence, cart drawer rendering,
  * quantity updates, and checkout triggers.
@@ -9,7 +9,7 @@
 
 import { SITE_CONFIG } from './site-config.js';
 
-const STORAGE_KEY = 'manam_cart_v1';
+const STORAGE_KEY = 'gokula_amudham_cart_v1';
 
 class ShoppingCart {
   constructor() {

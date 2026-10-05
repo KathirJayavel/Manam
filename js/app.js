@@ -1,10 +1,10 @@
 /**
  * ==============================================================================
- * MANAM DAIRY & FOODS — APPLICATION CONTROLLER
+ * GOKULA AMUDHAM — APPLICATION CONTROLLER
  * ==============================================================================
  * Strict Dynamic Variant Pricing:
- * - 200 ml Ghee & 200 g Butter: MRP only, NO discount badge, NO strikethrough, NO savings.
- * - 500 ml, 1 L, 2 L Ghee & 500 g, 1 kg, 2 kg Butter: 10% OFF with strikethrough and savings.
+ * - 200 ml Ghee: MRP only, NO discount badge, NO strikethrough, NO savings.
+ * - 500 ml, 1 L, 2 L Ghee: 10% OFF with strikethrough and savings.
  * - High contrast typography and rich authentic visual storytelling.
  * ==============================================================================
  */
@@ -41,7 +41,7 @@ class App {
     this.bindNavigation();
     this.bindScrollEffects();
 
-    console.log('MANAM Dairy Foods website controller initialized with strict dynamic pricing.');
+    console.log('Gokula Amudham website controller initialized with strict dynamic pricing.');
   }
 
   // ---------------------------------------------------------------------------
@@ -51,7 +51,7 @@ class App {
     const { brand, hero } = SITE_CONFIG;
 
     // Page Title
-    document.title = `${brand.name} — Pure Cow Ghee & Uthukuli Butter | Farm to Home`;
+    document.title = `${brand.name} — ${brand.tagline} | Made the Traditional Way, Tastes Divine`;
 
     // Dynamic brand text injection
     document.querySelectorAll('.brand-name-text').forEach(el => el.textContent = brand.name);
@@ -73,12 +73,12 @@ class App {
     if (heroBadge) heroBadge.textContent = hero.badge;
     if (heroImg) {
       heroImg.src = hero.heroImage;
-      heroImg.alt = `${brand.name} Pure Cow Ghee`;
+      heroImg.alt = `${brand.name} Traditional Cow Ghee`;
     }
 
     // Direct WhatsApp Buttons
     document.querySelectorAll('[data-bind="whatsapp-link"]').forEach(el => {
-      el.href = `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent('Hello MANAM! I would like to order Pure Cow Ghee / Uthukuli Butter.')}`;
+      el.href = `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Hello ${brand.name}! I would like to order Traditional Cow Ghee.`)}`;
     });
   }
 
@@ -262,7 +262,7 @@ class App {
 
   renderPriceBox(variant, currency) {
     if (variant.discountEligible) {
-      // 500ml, 1L, 2L ghee & 500g, 1kg, 2kg butter:
+      // 500ml, 1L, 2L Ghee:
       // Price: ~~₹350~~ 10% OFF
       // ₹315  You Save ₹35
       return `
@@ -278,7 +278,7 @@ class App {
       `;
     }
 
-    // 200 ml ghee & 200 g butter:
+    // 200 ml Ghee:
     // Normal MRP ONLY. NO crossed-out price, NO 10% OFF badge, NO savings.
     return `
       <div class="price-strikethrough-row normal-mrp">
@@ -487,7 +487,7 @@ class App {
             </div>
             <div class="video-meta-right">
               <a href="#products" class="btn btn-secondary btn-sm" style="font-size: 0.8125rem;">
-                Shop Pure Ghee & Butter
+                Order Traditional Ghee
               </a>
             </div>
           </div>
@@ -586,7 +586,7 @@ class App {
           ${editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
         </div>
         <div class="editorial-quote-author">
-          <div class="quote-signature">— MANAM Dairy Foods</div>
+          <div class="quote-signature">— Gokula Amudham Dairy Foods</div>
           <div class="quote-creed">Pallavaram, Tambaram, Tamil Nadu · Direct Farmer Sourcing</div>
         </div>
       </div>
@@ -714,7 +714,7 @@ class App {
       emailEl.href = `mailto:${brand.email}`;
     }
     if (waEl) {
-      waEl.href = `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent('Hello MANAM! I would like to place an order.')}`;
+      waEl.href = `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Hello ${brand.name}! I would like to place an order.`)}`;
     }
     if (gmapsEl) {
       gmapsEl.href = brand.gmapsUrl;

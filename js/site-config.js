@@ -1,15 +1,23 @@
 /**
  * ==============================================================================
- * MANAM DAIRY & FOODS — CENTRAL SITE CONFIGURATION
+ * GOKULA AMUDHAM — CENTRAL SITE CONFIGURATION
  * ==============================================================================
  * 
- * FINAL CONFIGURATION (UX REFINED):
- * - Pure Cow Ghee sizes: 200 ml (MRP, NO DISCOUNT), 500 ml (10% OFF), 1 L (10% OFF), 2 L (10% OFF)
- *   Strictly ml / L units (NEVER kg for Ghee).
- * - Uthukuli Butter sizes: 200 g (MRP, NO DISCOUNT), 500 g (10% OFF), 1 kg (10% OFF), 2 kg (10% OFF)
- *   Units: g / kg.
- * - Dynamic pricing per variant with `discountEligible` flag.
- * - Production Journey: 10 visual sequential steps using authentic Drive and making photos.
+ * BRAND: Gokula Amudham
+ * WEBSITE: gokula-amudham
+ * TAGLINE: Traditional Ghee
+ * MOTTO: "Made the traditional way. Tastes divine."
+ * 
+ * PRODUCT SCOPE: PURE COW GHEE ONLY (STRICTLY NO BUTTER FOR SALE)
+ * - 200 ml: MRP ₹140 (Standard MRP, NO DISCOUNT)
+ * - 500 ml: MRP ₹350 ➔ ₹315 (10% OFF, You Save ₹35)
+ * - 1 L:    MRP ₹700 ➔ ₹630 (10% OFF, You Save ₹70)
+ * - 2 L:    MRP ₹1400 ➔ ₹1260 (10% OFF, You Save ₹140)
+ * Units: ml / L only.
+ * 
+ * SOURCING & HERITAGE:
+ * - Dairy sourced from grassroots farmers in Tamil Nadu.
+ * - Traditional butter churning & open-fire clarification into granular golden ghee.
  * - Confirmed Contact: +91 93440 20730 (WhatsApp & Phone)
  * - Address: Sunnambu Colony, Pallavaram, Tambaram, Tamil Nadu 600043
  * - Google Maps: https://maps.app.goo.gl/VQ2UF23fypefmNVQ7
@@ -21,15 +29,18 @@ export const SITE_CONFIG = {
   // 1. BRAND & CONTACT INFORMATION
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   brand: {
-    name: "MANAM",
-    legalName: "MANAM Dairy Foods",
-    tagline: "From the hands of farmers, to the heart of your home.",
-    shortDescription: "Farm-sourced Uthukuli Butter & Pure Cow Ghee, crafted for authentic South Indian kitchens.",
+    name: "Gokula Amudham",
+    websiteName: "gokula-amudham",
+    legalName: "Gokula Amudham Dairy Foods",
+    tagline: "Traditional Ghee",
+    motto: "Made the traditional way. Tastes divine.",
+    shortDescription: "Authentic farm-sourced Traditional Cow Ghee, slowly clarified to golden perfection with a signature granular texture and comforting aroma.",
     
-    // Official Master Logos
-    logoBadge: "assets/images/manam-official-logo-badge.png",
-    logoTransparent: "assets/images/manam-official-logo-transparent.png",
-    logoOfficial: "assets/images/manam-official-logo.jpg",
+    // Official Master Logos & Badges
+    logoBadge: "assets/images/gokula-logo-badge.png",
+    logoEmblem: "assets/images/gokula-emblem.jpg",
+    logoFull: "assets/images/gokula-logo-full.jpg",
+    favicon: "assets/images/gokula-favicon.png",
     
     // Official Contact & WhatsApp
     whatsappNumber: "919344020730",
@@ -38,7 +49,7 @@ export const SITE_CONFIG = {
     // Store Location & Maps
     address: "Sunnambu Colony, Pallavaram, Tambaram, Tamil Nadu 600043",
     gmapsUrl: "https://maps.app.goo.gl/VQ2UF23fypefmNVQ7",
-    email: "contact@manamfoods.com",
+    email: "contact@gokulaamudham.com",
     
     socials: {
       whatsapp: "https://wa.me/919344020730",
@@ -53,15 +64,15 @@ export const SITE_CONFIG = {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   hero: {
     badge: "Direct Farmer Sourcing · Traditional Tamil Nadu Dairy",
-    headline: "Pure by Origin.\nRich in Tradition.",
-    supportingCopy: "Farm-sourced Uthukuli Butter & Pure Cow Ghee, made for the taste of home. Order directly on WhatsApp with exclusive introductory offers.",
-    shopButtonText: "Shop Products",
-    storyButtonText: "Explore Production Story",
-    heroImage: "assets/images/product-ghee-hero-hd.jpg",
+    headline: "Made the Traditional Way.\nTastes Divine.",
+    supportingCopy: "Pure Cow Ghee crafted through traditional butter churning and patient slow-fire clarification. Sourced with honor from grassroots dairy farmers for the authentic taste of home.",
+    shopButtonText: "Order Pure Ghee",
+    storyButtonText: "Explore The Journey",
+    heroImage: "assets/images/gokula-product-hero.jpg",
     floatingBadge: {
       tag: "Pure Cow Dairy",
       title: "Signature Granular Texture",
-      subtitle: "The classic 'Manal Manal' aroma of South India"
+      subtitle: "The classic 'Manal Manal' aroma loved in South Indian homes"
     }
   },
 
@@ -72,47 +83,45 @@ export const SITE_CONFIG = {
     {
       icon: "🌾",
       title: "Farmer Sourced",
-      description: "Direct partnership with local dairy farmers in Tamil Nadu"
+      description: "Direct partnership with local dairy farming families across Tamil Nadu"
     },
     {
       icon: "🐄",
       title: "Pure Cow Ghee",
-      description: "Carefully clarified cow milk butter with rich aroma (ml & L only)"
+      description: "Crafted from fresh cow milk butter with natural golden hue (ml & L only)"
     },
     {
-      icon: "🧈",
-      title: "Uthukuli Butter",
-      description: "Renowned traditional butter from the historic dairy region"
+      icon: "🪔",
+      title: "Traditional Clarification",
+      description: "Patiently simmered over controlled heat to create signature granular grain"
     },
     {
       icon: "✨",
-      title: "Quality First",
-      description: "Carefully selected and packed for everyday family kitchens"
+      title: "Pure & Honest",
+      description: "No artificial essences, no chemical preservatives — sealed fresh in clean jars"
     }
   ],
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 4. PRODUCTS CATALOG (STRICT VARIANT-LEVEL DYNAMIC PRICING)
+  // 4. PRODUCTS CATALOG (GHEE ONLY — STRICT DYNAMIC VARIANT PRICING)
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   products: [
-    // -------------------------------------------------------------
-    // PRODUCT 1: PURE COW GHEE (STRICTLY ml & L — NEVER kg)
-    // -------------------------------------------------------------
     {
-      id: "pure-cow-ghee",
-      name: "MANAM Pure Cow Ghee",
+      id: "traditional-cow-ghee",
+      name: "Gokula Amudham Traditional Ghee",
       tagline: "Slowly clarified golden cow ghee with authentic granular texture",
       defaultBadge: "Customer Favorite",
-      shortDescription: "Crafted by slowly clarifying wholesome cow milk butter sourced from grassroots rural dairy farmers. Features a vibrant golden hue, traditional granular ('manal manal') texture, and an authentic South Indian aroma.",
-      primaryImage: "assets/images/product-ghee-hero-hd.jpg",
+      shortDescription: "Prepared by slowly clarifying wholesome cow milk butter sourced directly from grassroots rural dairy farmers. Celebrated for its deep golden hue, traditional granular ('manal manal') mouthfeel, and rich sacred aroma that brings comforting warmth to every South Indian meal.",
+      primaryImage: "assets/images/gokula-product-hero.jpg",
       gallery: [
-        "assets/images/product-ghee-hero-hd.jpg",
+        "assets/images/gokula-product-hero.jpg",
+        "assets/images/gokula-product-range.jpg",
         "assets/images/making-ghee-simmering.jpg",
-        "assets/images/product-range-collage-hd.jpg",
         "assets/images/making-dairy-ghee-jars.jpg"
       ],
       features: [
         "Signature granular ('manal manalaana') mouthfeel",
+        "Slowly clarified over controlled open flame from churned butter",
         "Wholesome cow dairy base sourced directly from farmers",
         "Food-grade sealed packaging preserving fresh aroma",
         "Units strictly in ml & L: 200 ml, 500 ml, 1 L, 2 L"
@@ -123,7 +132,7 @@ export const SITE_CONFIG = {
           size: "200 ml",
           unit: "ml",
           mrp: 140,
-          price: 140, // Normal MRP
+          price: 140, // Standard MRP, NO DISCOUNT
           discountEligible: false,
           discountPercentage: 0,
           savings: 0,
@@ -168,99 +177,25 @@ export const SITE_CONFIG = {
           isDefault: false
         }
       ]
-    },
-
-    // -------------------------------------------------------------
-    // PRODUCT 2: UTHUKULI BUTTER (STRICTLY g & kg)
-    // -------------------------------------------------------------
-    {
-      id: "uthukuli-butter",
-      name: "MANAM Uthukuli Butter",
-      tagline: "Authentic Churned Butter from Uthukuli Heartland",
-      defaultBadge: "Heritage Creamery",
-      shortDescription: "Sourced from the celebrated dairy farming hub of Uthukuli, Tamil Nadu. Fresh cow milk cream is traditionally churned into velvety, dense butter balls with clean dairy sweetness and exceptional clarification.",
-      primaryImage: "assets/images/product-butter-tub-hd.jpg",
-      gallery: [
-        "assets/images/product-butter-tub-hd.jpg",
-        "assets/images/making-butter-churning.jpg",
-        "assets/images/making-churned-butter-hd.jpg",
-        "assets/images/product-range-collage-hd.jpg"
-      ],
-      features: [
-        "Sourced from the famed Uthukuli dairy heartland",
-        "Freshly churned from wholesome cow milk cream",
-        "Velvety texture with clean dairy sweetness",
-        "Available in 200 g, 500 g, 1 kg, and 2 kg"
-      ],
-      variants: [
-        {
-          id: "butter-200g",
-          size: "200 g",
-          unit: "g",
-          mrp: 150,
-          price: 150, // Normal MRP
-          discountEligible: false,
-          discountPercentage: 0,
-          savings: 0,
-          label: "Trial Pack",
-          isDefault: false
-        },
-        {
-          id: "butter-500g",
-          size: "500 g",
-          unit: "g",
-          mrp: 375,
-          price: 338, // 10% OFF
-          discountEligible: true,
-          discountPercentage: 10,
-          savings: 37,
-          label: "Most Popular",
-          isDefault: true,
-          popular: true
-        },
-        {
-          id: "butter-1kg",
-          size: "1 kg",
-          unit: "kg",
-          mrp: 750,
-          price: 675, // 10% OFF
-          discountEligible: true,
-          discountPercentage: 10,
-          savings: 75,
-          label: "Best Value",
-          isDefault: false
-        },
-        {
-          id: "butter-2kg",
-          size: "2 kg",
-          unit: "kg",
-          mrp: 1500,
-          price: 1350, // 10% OFF
-          discountEligible: true,
-          discountPercentage: 10,
-          savings: 150,
-          label: "Max Savings",
-          isDefault: false
-        }
-      ]
     }
   ],
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 5. PRODUCTION JOURNEY (10 VISUAL SEQUENTIAL STEPS)
+  // Butter celebrated as the essential intermediate stage in making ghee
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   productionJourney: {
     badge: "Authentic Dairy Heritage",
-    title: "From Farm to Home: Our Production Journey",
-    subtitle: "Follow our honest step-by-step process: from green pastures and morning milking to golden ghee clarifying on your tawa.",
+    title: "From Farm to Home: The Ghee Making Journey",
+    subtitle: "Follow our honest step-by-step process: from green morning pastures and traditional butter churning to golden ghee simmering on the open flame.",
     steps: [
       {
         step: "01",
         stage: "FARM & GRAZING",
         title: "Grassroots Dairy Partnerships",
         shortTitle: "Grassroots Dairy",
-        oneLiner: "Desi cows cared for with fresh green fodder by Tamil Nadu farmers.",
-        description: "We work directly with rural dairy farming families across Tamil Nadu. Native desi cows are cared for daily with fresh, wholesome green fodder to ensure pure, nutrient-rich milk.",
+        oneLiner: "Desi cows cared for with fresh green fodder by rural farming families.",
+        description: "We work directly with rural dairy farming families across Tamil Nadu. Native cows are cared for daily with fresh green fodder to yield wholesome, pure cow milk.",
         image: "assets/images/story-cows-grazing.jpg",
         imageAlt: "Desi cows feeding on green grass in dairy farm shed",
         tag: "Origin"
@@ -271,7 +206,7 @@ export const SITE_CONFIG = {
         title: "Morning Milking at Dawn",
         shortTitle: "Morning Milking",
         oneLiner: "Gentle daily hand-milking at dawn straight from the farm source.",
-        description: "Every morning begins with dedicated hand-milking at sunrise. Practicing gentle animal care ensures uncontaminated dairy straight from the source.",
+        description: "Every morning begins with dedicated hand-milking at sunrise. Practicing gentle animal care ensures uncontaminated, wholesome dairy straight from the source.",
         image: "assets/images/story-hand-milking.jpg",
         imageAlt: "Farmer hand milking cow into bucket at dawn",
         tag: "Purity"
@@ -293,21 +228,21 @@ export const SITE_CONFIG = {
         title: "Cream Separation & Churning",
         shortTitle: "Cream Churning",
         oneLiner: "Wholesome cream traditionally churned until fresh butter clusters.",
-        description: "Wholesome cow milk cream is naturally separated and churned in dedicated vessels using traditional churning motions until the golden butter grains cluster together.",
+        description: "Wholesome cow milk cream is naturally set and churned in dedicated vessels using traditional churning motions until golden butter grains cluster together.",
         image: "assets/images/making-butter-churning.jpg",
         imageAlt: "Traditional butter churning in vessel with churner shaft",
         tag: "Tradition"
       },
       {
         step: "05",
-        stage: "UTHUKULI BUTTER",
-        title: "Velvety Churned Butter Balls",
-        shortTitle: "Uthukuli Butter",
-        oneLiner: "Silky, dense butter balls hand-gathered in traditional uruli pots.",
-        description: "Freshly churned butter is hand-gathered into silky, dense balls in traditional uruli vessels. Celebrated for its low moisture content and signature milky aroma.",
+        stage: "TRADITIONAL BUTTER",
+        title: "Velvety Churned Butter Extraction",
+        shortTitle: "Pure Churned Butter",
+        oneLiner: "Dense, silky butter balls gathered by hand in traditional uruli pots.",
+        description: "Freshly churned butter is hand-gathered into silky, dense balls in traditional uruli vessels. This pure cultured butter forms the essential intermediate heart of our traditional ghee.",
         image: "assets/images/making-churned-butter-hd.jpg",
-        imageAlt: "Fresh churned Uthukuli butter balls in traditional uruli pot",
-        tag: "Heritage"
+        imageAlt: "Fresh churned traditional butter balls in uruli pot for making ghee",
+        tag: "Craft"
       },
       {
         step: "06",
@@ -315,31 +250,31 @@ export const SITE_CONFIG = {
         title: "Gentle Simmering & Boiling",
         shortTitle: "Slow Clarification",
         oneLiner: "Simmered over controlled heat into golden, aromatic clarified ghee.",
-        description: "The butter is transferred to heavy boiling vessels and gently simmered over controlled heat. Moisture evaporates as the golden milk solids clarify into rich amber ghee.",
+        description: "The fresh butter is transferred to heavy boiling vessels and gently simmered over controlled heat. Moisture evaporates as milk solids caramelize, clarifying into rich amber ghee.",
         image: "assets/images/making-ghee-simmering.jpg",
         imageAlt: "Golden clarified cow ghee bubbling and simmering in boiler",
         tag: "Clarification"
       },
       {
         step: "07",
-        stage: "PACKED WITH INTEGRITY",
-        title: "Sealed in Food-Grade Glass & Tubs",
-        shortTitle: "Packed with Care",
-        oneLiner: "Carefully sealed in clean jars, locking in natural granular texture.",
-        description: "Freshly clarified ghee is carefully settled and sealed in clean jars and containers at our facility, locking in the natural granular texture without artificial additives.",
+        stage: "GRANULAR SETTING",
+        title: "Gradual Cooling to Grainy Texture",
+        shortTitle: "Natural Granulation",
+        oneLiner: "Naturally settled to achieve the signature granular ('manal manal') grain.",
+        description: "Freshly clarified ghee is gently strained and allowed to cool slowly at ambient temperature, allowing the ghee crystals to form the authentic, melt-in-mouth granular texture.",
         image: "assets/images/making-dairy-ghee-jars.jpg",
         imageAlt: "Rows of freshly packed yellow ghee jars at dairy facility",
-        tag: "Integrity"
+        tag: "Texture"
       },
       {
         step: "08",
         stage: "OUR BRAND",
-        title: "The MANAM Product Range",
-        shortTitle: "The MANAM Range",
-        oneLiner: "Farm-direct Cow Ghee & Uthukuli Butter for everyday home cooking.",
-        description: "Pure Cow Ghee and Uthukuli Butter packaged with pride under the MANAM brand, honoring generations of South Indian dairy traditions.",
-        image: "assets/images/product-range-collage-hd.jpg",
-        imageAlt: "MANAM Cow Ghee and Butter complete product line",
+        title: "Gokula Amudham Packaging",
+        shortTitle: "Gokula Amudham",
+        oneLiner: "Sealed in sacred food-grade glass jars preserving natural aroma.",
+        description: "Pure Cow Ghee packaged with honor under the Gokula Amudham brand, adorned with Lord Krishna and Kamadhenu, celebrating sacred South Indian dairy traditions.",
+        image: "assets/images/gokula-product-range.jpg",
+        imageAlt: "Gokula Amudham Traditional Ghee glass jars lineup on marble pedestal",
         tag: "Authenticity"
       },
       {
@@ -348,7 +283,7 @@ export const SITE_CONFIG = {
         title: "The Sizzle of the Hot Tawa",
         shortTitle: "Mother's Kitchen",
         oneLiner: "Irresistible morning aroma over golden dosas and fluffy idli podi.",
-        description: "A ladle of MANAM Cow Ghee swirled over a scorching iron tawa creates the irresistible morning aroma of golden crisp ghee roast dosa and fluffy idli podi.",
+        description: "A ladle of Gokula Amudham Cow Ghee swirled over a scorching iron tawa creates the irresistible morning aroma of golden crisp ghee roast dosa and fluffy idli podi.",
         image: "assets/images/food/food-ghee-dosa.jpg",
         imageAlt: "Golden crisp South Indian ghee roast dosa on banana leaf",
         tag: "Aroma"
@@ -359,7 +294,7 @@ export const SITE_CONFIG = {
         title: "Bringing Generations Together",
         shortTitle: "Family Comfort",
         oneLiner: "Traditional South Indian flavours bringing warmth to every meal.",
-        description: "From festival sweets like melt-in-mouth Mysore pak to daily family meals, MANAM brings the genuine, timeless taste of South Indian comfort to your home.",
+        description: "From festival sweets like melt-in-mouth Mysore pak to daily family meals and temple poojas, Gokula Amudham brings the genuine, timeless taste of South Indian comfort to your home.",
         image: "assets/images/food/food-traditional-sweets.jpg",
         imageAlt: "Traditional ghee Mysore pak sweets on antique brass tray",
         tag: "Belonging"
@@ -368,40 +303,40 @@ export const SITE_CONFIG = {
   },
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 6. BULK & WHOLESALE ORDERS (CLEAN & REFINED)
+  // 6. BULK & WHOLESALE ORDERS (GHEE ONLY)
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   bulkOrders: {
-    badge: "Commercial & Catering",
-    title: "Bulk & Wholesale Inquiries",
-    description: "Planning a wedding, temple function, catering event, or commercial kitchen? We supply MANAM Pure Cow Ghee and Uthukuli Butter in 5kg, 10kg, and 15kg sealed containers with volume-tiered wholesale pricing.",
-    tiers: ["5 kg", "10 kg", "15 kg+"],
-    ctaText: "Inquire for Bulk Order on WhatsApp",
-    waMessage: "Hello MANAM! I would like to inquire about Bulk Orders (5kg+) for Pure Cow Ghee / Uthukuli Butter. Please share wholesale pricing and delivery details."
+    badge: "Temple & Catering Supply",
+    title: "Bulk & Commercial Ghee Orders",
+    description: "Planning a wedding feast, temple pooja, annadhanam, catering event, or commercial kitchen? We supply Gokula Amudham Pure Cow Ghee in 5 L, 10 L, and 15 L+ sealed containers with volume-tiered wholesale pricing.",
+    tiers: ["5 L Sealed Pack", "10 L Temple Tin", "15 L+ Express Supply"],
+    ctaText: "Inquire for Bulk Ghee on WhatsApp",
+    waMessage: "Hello Gokula Amudham! I would like to inquire about Bulk Orders (5L+) for Pure Cow Ghee. Please share wholesale pricing and delivery details."
   },
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 7. CINEMATIC BRAND STORY VIDEO
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   video: {
-    videoUrl: "assets/video/manam-story.mp4",
-    posterImage: "assets/images/video-poster-frame.jpg",
+    videoUrl: "assets/video/gokula-amudham-story.mp4",
+    posterImage: "assets/images/gokula-video-poster.jpg",
     sectionBadge: "Brand Film",
-    title: "Pure by Origin: The Story of MANAM",
+    title: "Made the Traditional Way: The Story of Gokula Amudham",
     subtitle: "From morning pastures in Tamil Nadu and traditional churning to the sizzle of your mother’s tawa.",
-    storyNarrative: "Witness the journey of MANAM: Grassroots dairy farmers tending to healthy cows, fresh milk collection at dawn, traditional churning of velvety butter, slow clarification into golden grainy ghee, and the joy of home-cooked meals."
+    storyNarrative: "Witness the sacred journey of Gokula Amudham: Grassroots dairy farmers tending to healthy cows, fresh milk collection at dawn, traditional churning of wholesome butter, patient slow clarification into golden grainy ghee, and the divine taste of home."
   },
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 8. WHY CHOOSE US
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   whyChooseUs: {
-    headline: "Rooted in Integrity",
-    subheadline: "Why households choose MANAM for their everyday food.",
+    headline: "Rooted in Sacred Tradition",
+    subheadline: "Why households trust Gokula Amudham for their everyday food and festive offerings.",
     pillars: [
       {
         icon: "🌾",
         title: "Farmer Sourced",
-        description: "We work directly with regional dairy farmers, ensuring fair partnerships and wholesome milk straight from rural farming clusters."
+        description: "We work directly with regional dairy farmers across Tamil Nadu, ensuring wholesome cow milk straight from grassroots farming clusters."
       },
       {
         icon: "🥛",
@@ -410,18 +345,18 @@ export const SITE_CONFIG = {
       },
       {
         icon: "🏺",
-        title: "Rich Traditional Taste",
-        description: "The distinct golden color, soothing nutty aroma, and granular 'manal manal' texture that South Indian families cherish."
+        title: "Rich Granular Texture",
+        description: "The distinct golden color, soothing nutty aroma, and authentic granular ('manal manal') mouthfeel that South Indian families cherish."
       },
       {
-        icon: "🔍",
-        title: "Carefully Selected",
-        description: "Every batch is inspected for flavor profile, clarity, aroma, and moisture balance before being sealed in jars."
+        icon: "🪔",
+        title: "Slow-Simmered Purity",
+        description: "Patiently clarified in traditional vessels over controlled flame to preserve natural dairy sweetness and wholesome clarity."
       },
       {
         icon: "🍳",
-        title: "Made for Everyday Cooking",
-        description: "Versatile and dependable — from simple morning idli-podi to grand festive feasts and family celebration sweets."
+        title: "Everyday Cooking & Poojas",
+        description: "Versatile and dependable — from simple morning idli-podi to grand festive feasts, temple prasadam, and family sweets."
       }
     ]
   },
@@ -430,12 +365,12 @@ export const SITE_CONFIG = {
   // 9. FOOD & CULINARY PAIRINGS
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   foodSection: {
-    headline: "A little ghee. A lot of flavour.",
-    subheadline: "From morning tiffin to afternoon meals and festive sweets, MANAM brings unmatched richness to every bite.",
+    headline: "A little ghee. A lot of divine flavour.",
+    subheadline: "From morning tiffin to afternoon meals and festive sweets, Gokula Amudham brings unmatched richness to every bite.",
     pairings: [
       {
         title: "Crisp Ghee Roast Dosa",
-        description: "A ladle of MANAM Cow Ghee swirled over a paper-thin dosa creates a golden crackling crust and irresistible tiffin aroma.",
+        description: "A ladle of Gokula Amudham Cow Ghee swirled over a paper-thin dosa creates a golden crackling crust and irresistible tiffin aroma.",
         image: "assets/images/food/food-ghee-dosa.jpg",
         highlight: "The Signature Sizzle"
       },
@@ -447,7 +382,7 @@ export const SITE_CONFIG = {
       },
       {
         title: "Fragrant Ven Pongal",
-        description: "Warm rice and lentils tempered with cumin, crushed black peppercorns, curry leaves, and crunchy ghee-fried cashews.",
+        description: "Warm rice and lentils tempered with cumin, crushed black peppercorns, curry leaves, and crunchy cashews fried in pure ghee.",
         image: "assets/images/food/food-ven-pongal.jpg",
         highlight: "Sunday Breakfast Classic"
       },
@@ -465,11 +400,11 @@ export const SITE_CONFIG = {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   editorial: {
     tagline: "Our Core Philosophy",
-    headline: "“Good food begins with good ingredients.”",
+    headline: "“Made the traditional way. Tastes divine.”",
     paragraphs: [
-      "In South Indian homes, ghee is never merely a cooking medium; it is a gesture of hospitality, an aroma that summons children to the table, and the quiet soul of sacred family recipes handed down across generations.",
-      "MANAM was founded on a simple conviction: honour the dairy farmer, respect the traditional craft of butter churning, and bring uncompromised purity to the city kitchen. We don't invent shortcuts or artificial claims. We source wholesome dairy from farmers who know and love their craft.",
-      "When you spoon MANAM Ghee or spread our Uthukuli Butter, you taste the sunlit pasture lands, the quiet skill of rural hands, and the unmistakable warmth of home."
+      "In South Indian homes, ghee is never merely a cooking medium; it is a sacred gesture of hospitality, an aroma that summons children to the table, and the quiet soul of traditional family recipes handed down across generations.",
+      "Gokula Amudham was founded on a simple conviction: honor the dairy farmer, respect the traditional craft of butter churning and slow clarification, and bring uncompromised purity to the everyday kitchen. We source wholesome dairy from rural farming families who know and revere their craft.",
+      "When you spoon Gokula Amudham Traditional Ghee over steaming food, you taste the sunlit pasture lands, the quiet skill of pastoral hands, and the unmistakable divine warmth of home."
     ]
   },
 
@@ -478,22 +413,22 @@ export const SITE_CONFIG = {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   testimonials: {
     headline: "Loved in Everyday Kitchens",
-    subheadline: "Feedback from early food lovers and home cooks across Tamil Nadu",
+    subheadline: "Feedback from home cooks and food lovers across Tamil Nadu",
     items: [
       {
-        quote: "The aroma when I poured this ghee over hot rice and paruppu took me straight back to my grandmother's home in Erode. The granular texture is absolutely genuine.",
+        quote: "The aroma when I poured Gokula Amudham ghee over hot rice and paruppu took me straight back to my grandmother's home in Erode. The granular texture is absolutely genuine.",
         author: "Lakshmi R.",
         location: "Home Cook · Chennai",
         rating: 5
       },
       {
-        quote: "True Uthukuli butter is very hard to find in cities today. MANAM's butter has that distinct milky richness and clarified cleanly into the most fragrant golden ghee.",
+        quote: "You can tell the difference in the very first spoonful. Slow clarification gives it that authentic nutty aroma and rich golden color. We order the 1L jar every month.",
         author: "Karthikeyan S.",
         location: "Food Enthusiast · Coimbatore",
         rating: 5
       },
       {
-        quote: "I tried MANAM Cow Ghee for making festive Mysore Pak during Diwali. The melt-in-mouth texture and pure aroma made it an instant favorite with our entire family.",
+        quote: "We used Gokula Amudham Cow Ghee for our temple pooja and Diwali sweets. Melt-in-mouth Mysore Pak and incredible fragrance that filled the whole home.",
         author: "Revathi S.",
         location: "Bengaluru",
         rating: 5
@@ -502,40 +437,40 @@ export const SITE_CONFIG = {
   },
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 12. FAQ ACCORDION SECTION
+  // 12. FREQUENTLY ASKED QUESTIONS (ACCORDION)
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   faqs: [
     {
       question: "What products and sizes do you sell?",
-      answer: "We specialize in MANAM Pure Cow Ghee (available in 200 ml, 500 ml, 1 L, and 2 L) and MANAM Uthukuli Butter (available in 200 g, 500 g, 1 kg, and 2 kg). We also cater to commercial bulk orders (5kg, 10kg, 15kg+)."
+      answer: "We specialize exclusively in Gokula Amudham Traditional Pure Cow Ghee, available in 200 ml, 500 ml, 1 L, and 2 L jars. We also cater to commercial and temple bulk orders in 5 L, 10 L, and 15 L+ sealed containers."
     },
     {
       question: "What is your pricing and discount policy?",
-      answer: "We offer flat 10% OFF on all regular and family sizes: Pure Cow Ghee 500 ml (₹315), 1 L (₹630), 2 L (₹1,260); Uthukuli Butter 500 g (₹338), 1 kg (₹675), 2 kg (₹1,350). The starter trial packs (200 ml Ghee at ₹140 and 200 g Butter at ₹150) are sold at standard MRP without discount."
+      answer: "We offer flat 10% OFF on all regular and family sizes: Pure Cow Ghee 500 ml (₹315, save ₹35), 1 L (₹630, save ₹70), and 2 L (₹1,260, save ₹140). The starter trial pack (200 ml Ghee at ₹140) is sold at standard MRP without discount."
     },
     {
-      question: "What is Uthukuli Butter?",
-      answer: "Uthukuli is a historic town in Tirupur district, Tamil Nadu, renowned for generations as South India's butter capital. Butter from this region is celebrated for its natural churning method, fresh cow milk cream, light moisture content, and outstanding aroma when clarified into ghee."
+      question: "How is Gokula Amudham Ghee prepared?",
+      answer: "Our ghee is crafted using time-honored traditional methods. Wholesome cow milk is collected fresh from rural farmers, naturally cultured and churned into pure butter, and then patiently simmered over controlled heat. As water evaporates and milk solids clarify, the golden aromatic ghee is gently cooled to develop its signature granular ('manal manal') texture."
     },
     {
-      question: "Do you offer bulk orders and extra discounts?",
-      answer: "Yes! We provide special volume-tiered wholesale pricing for bulk orders of 5kg, 10kg, 15kg and above for weddings, temples, restaurants, and catering. Contact us via WhatsApp at +91 93440 20730 for custom bulk quotes."
+      question: "Do you sell butter directly?",
+      answer: "No, Gokula Amudham focuses exclusively on producing and delivering pure cow ghee. Traditional butter is an essential intermediate stage in our ghee-making craft, but we do not sell butter as a retail product."
     },
     {
-      question: "How should I store the ghee?",
-      answer: "Store MANAM Cow Ghee in a cool, dry place away from direct sunlight. Always use a clean, dry spoon to preserve its freshness. Refrigerator storage is not required for ghee, as pure clarified ghee stays fresh naturally at room temperature."
+      question: "Do you offer bulk orders and temple supplies?",
+      answer: "Yes! We provide special volume-tiered wholesale pricing for bulk orders of 5 L, 10 L, 15 L and above for weddings, temples, poojas, and catering. Contact us directly on WhatsApp at +91 93440 20730 for custom bulk quotes."
+    },
+    {
+      question: "How should I store Gokula Amudham Ghee?",
+      answer: "Store Gokula Amudham Ghee in a cool, dry place away from direct sunlight. Always use a clean, dry spoon to preserve its purity. Refrigerator storage is not required, as pure clarified ghee stays fresh naturally at room temperature."
     },
     {
       question: "How can I place an order?",
-      answer: "Ordering is seamless! Simply select your desired products and quantities on this website, click 'Proceed to Order', fill in your delivery details, and click 'Confirm & Order via WhatsApp'. This instantly opens WhatsApp (+91 93440 20730) with your pre-filled cart ready to send to our team."
+      answer: "Ordering is seamless! Simply select your desired pack size and quantity on this website, click 'Proceed to Order', fill in your delivery details, and click 'Confirm & Order via WhatsApp'. This instantly opens WhatsApp (+91 93440 20730) with your pre-filled order ready to send to our team."
     },
     {
       question: "Where is your address and do you deliver?",
-      answer: "Our location is Sunnambu Colony, Pallavaram, Tambaram, Tamil Nadu 600043 (view on Google Maps: https://maps.app.goo.gl/VQ2UF23fypefmNVQ7). We deliver locally in Chennai/Tambaram as well as ship across Tamil Nadu and South India."
-    },
-    {
-      question: "How can I contact you?",
-      answer: "You can message our official WhatsApp number directly at +91 93440 20730 by clicking the 'Order on WhatsApp' button anywhere on this website, or visit our location in Pallavaram."
+      answer: "Our store location is Sunnambu Colony, Pallavaram, Tambaram, Tamil Nadu 600043 (view on Google Maps: https://maps.app.goo.gl/VQ2UF23fypefmNVQ7). We deliver locally in Chennai/Tambaram as well as dispatch across Tamil Nadu and South India."
     }
   ],
 
@@ -544,8 +479,8 @@ export const SITE_CONFIG = {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   finalCta: {
     headline: "Bring Home the Taste of Tradition.",
-    supportingLine: "Pure Cow Ghee & Uthukuli Butter for the food you love.",
-    primaryBtn: "Shop Products",
+    supportingLine: "Pure Cow Ghee made the traditional way for the food you love.",
+    primaryBtn: "Order Pure Ghee",
     secondaryBtn: "Order on WhatsApp"
   }
 };

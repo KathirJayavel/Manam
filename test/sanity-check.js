@@ -1,25 +1,37 @@
 import { SITE_CONFIG } from '../js/site-config.js';
+import fs from 'fs';
+import path from 'path';
 
 console.log('====================================================');
-console.log('MANAM COMPREHENSIVE QA & DYNAMIC PRICING VERIFICATION');
+console.log('GOKULA AMUDHAM COMPREHENSIVE QA & BRAND VERIFICATION');
 console.log('====================================================');
 
-const ghee = SITE_CONFIG.products.find(p => p.id === 'pure-cow-ghee');
-const butter = SITE_CONFIG.products.find(p => p.id === 'uthukuli-butter');
+// 1. Verify Brand Identity
+console.log('\n--- 1. TESTING BRAND IDENTITY & SCOPE ---');
+console.assert(SITE_CONFIG.brand.name === 'Gokula Amudham', `Brand name must be Gokula Amudham, got '${SITE_CONFIG.brand.name}'`);
+console.assert(SITE_CONFIG.brand.tagline === 'Traditional Ghee', `Brand tagline must be Traditional Ghee, got '${SITE_CONFIG.brand.tagline}'`);
+console.log('✓ Brand Name: Gokula Amudham | Tagline: Traditional Ghee');
 
-console.assert(ghee, 'Pure Cow Ghee product must exist');
-console.assert(butter, 'Uthukuli Butter product must exist');
+// Sells ONLY Ghee:
+const ghee = SITE_CONFIG.products.find(p => p.id === 'traditional-cow-ghee' || p.id === 'pure-cow-ghee');
+const butterProduct = SITE_CONFIG.products.find(p => p.id.includes('butter'));
 
-// 1. Verify Ghee Units (MUST ONLY USE ml / L, NEVER kg)
-console.log('\n--- 1. TESTING PURE COW GHEE SIZES & UNITS ---');
+console.assert(ghee, 'Pure Cow Ghee product must exist in catalog');
+console.assert(!butterProduct, 'Butter must NOT exist as a sellable product in catalog');
+console.assert(SITE_CONFIG.products.length === 1, `Catalog must contain exactly 1 sellable product (Ghee), found ${SITE_CONFIG.products.length}`);
+console.log('✓ Catalog Scope strictly verified: GHEE ONLY (Butter product cards/pricing completely eliminated)');
+
+// 2. Verify Ghee Units (MUST ONLY USE ml / L, NEVER kg)
+console.log('\n--- 2. TESTING GHEE SIZES & UNITS ---');
+console.assert(ghee.variants.length === 4, `Ghee must have exactly 4 variants, got ${ghee.variants.length}`);
 ghee.variants.forEach(v => {
   console.assert(!v.size.toLowerCase().includes('kg'), `FAIL: Ghee size '${v.size}' must NEVER use kg!`);
   console.assert(v.unit === 'ml' || v.unit === 'L', `FAIL: Ghee unit '${v.unit}' must be ml or L`);
   console.log(`✓ Ghee Size verified: ${v.size} (Unit: ${v.unit})`);
 });
 
-// 2. Verify Ghee Variant Pricing & Discounts
-console.log('\n--- 2. TESTING GHEE VARIANT PRICING & DISCOUNT ELIGIBILITY ---');
+// 3. Verify Ghee Variant Pricing & Discounts
+console.log('\n--- 3. TESTING GHEE VARIANT PRICING & DISCOUNT ELIGIBILITY ---');
 const g200 = ghee.variants.find(v => v.size === '200 ml');
 const g500 = ghee.variants.find(v => v.size === '500 ml');
 const g1L = ghee.variants.find(v => v.size === '1 L');
@@ -53,51 +65,16 @@ console.assert(g2L.discountEligible === true, 'Ghee 2L discountEligible must be 
 console.assert(g2L.savings === 140, 'Ghee 2L savings must be 140');
 console.log('✓ 2 L Ghee: MRP ₹1400 ➔ ₹1260 (10% OFF, Save ₹140)');
 
-// 3. Verify Butter Sizes & Pricing
-console.log('\n--- 3. TESTING UTHUKULI BUTTER SIZES & PRICING ---');
-const b200 = butter.variants.find(v => v.size === '200 g');
-const b500 = butter.variants.find(v => v.size === '500 g');
-const b1k = butter.variants.find(v => v.size === '1 kg');
-const b2k = butter.variants.find(v => v.size === '2 kg');
-
-// 200 g Butter: MRP, NO DISCOUNT
-console.assert(b200.mrp === 150, 'Butter 200g MRP must be 150');
-console.assert(b200.price === 150, 'Butter 200g price must be 150');
-console.assert(b200.discountEligible === false, 'Butter 200g discountEligible must be FALSE');
-console.assert(b200.savings === 0, 'Butter 200g savings must be 0');
-console.log('✓ 200 g Butter: MRP ₹150 | discountEligible: FALSE (NO discount, NO strikethrough, NO savings)');
-
-// 500 g Butter: 10% OFF
-console.assert(b500.mrp === 375, 'Butter 500g MRP must be 375');
-console.assert(b500.price === 338, 'Butter 500g price must be 338 (10% off)');
-console.assert(b500.discountEligible === true, 'Butter 500g discountEligible must be TRUE');
-console.assert(b500.savings === 37, 'Butter 500g savings must be 37');
-console.log('✓ 500 g Butter: MRP ₹375 ➔ ₹338 (10% OFF, Save ₹37)');
-
-// 1 kg Butter: 10% OFF
-console.assert(b1k.mrp === 750, 'Butter 1kg MRP must be 750');
-console.assert(b1k.price === 675, 'Butter 1kg price must be 675 (10% off)');
-console.assert(b1k.discountEligible === true, 'Butter 1kg discountEligible must be TRUE');
-console.assert(b1k.savings === 75, 'Butter 1kg savings must be 75');
-console.log('✓ 1 kg Butter: MRP ₹750 ➔ ₹675 (10% OFF, Save ₹75)');
-
-// 2 kg Butter: 10% OFF
-console.assert(b2k.mrp === 1500, 'Butter 2kg MRP must be 1500');
-console.assert(b2k.price === 1350, 'Butter 2kg price must be 1350 (10% off)');
-console.assert(b2k.discountEligible === true, 'Butter 2kg discountEligible must be TRUE');
-console.assert(b2k.savings === 150, 'Butter 2kg savings must be 150');
-console.log('✓ 2 kg Butter: MRP ₹1500 ➔ ₹1350 (10% OFF, Save ₹150)');
-
 // 4. Test Cart Calculations & Multi-Quantity Integrity
 console.log('\n--- 4. TESTING CART CALCULATIONS & MULTI-QTY ---');
 const cartItems = [
-  { name: 'MANAM Pure Cow Ghee', size: g500.size, price: g500.price, quantity: 2 }, // 315 * 2 = 630
-  { name: 'MANAM Uthukuli Butter', size: b200.size, price: b200.price, quantity: 1 } // 150 * 1 = 150 (MRP, no discount)
+  { name: 'Gokula Amudham Pure Cow Ghee', size: g500.size, price: g500.price, quantity: 2 }, // 315 * 2 = 630
+  { name: 'Gokula Amudham Pure Cow Ghee', size: g200.size, price: g200.price, quantity: 1 }  // 140 * 1 = 140
 ];
 
 const subtotal = cartItems.reduce((acc, it) => acc + (it.price * it.quantity), 0);
-console.assert(subtotal === 780, `Cart subtotal should be 780, got ${subtotal}`);
-console.log('✓ Cart Subtotal verified: 2 × 500ml Ghee (₹630) + 1 × 200g Butter (₹150) = ₹' + subtotal);
+console.assert(subtotal === 770, `Cart subtotal should be 770, got ${subtotal}`);
+console.log('✓ Cart Subtotal verified: 2 × 500ml Ghee (₹630) + 1 × 200ml Ghee (₹140) = ₹' + subtotal);
 
 // 5. Test WhatsApp Order Message Generation
 console.log('\n--- 5. TESTING WHATSAPP MESSAGE GENERATION ---');
@@ -108,7 +85,7 @@ function generateOrderMessage({ items, total, name, phone, address }) {
     return `${item.name} — ${item.size} × ${item.quantity} = ${currency}${linePrice}`;
   }).join('\n');
 
-  return `Hello! I'd like to place an order.\n\n${productLines}\n\nTotal: ${currency}${total.toLocaleString('en-IN')}\n\nName: ${name}\nPhone: ${phone}\nDelivery Address: ${address}`;
+  return `*NEW ORDER — GOKULA AMUDHAM*\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${productLines}\n\n*Total Order Value:* ${currency}${total.toLocaleString('en-IN')}\n\n*Customer Details:*\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Delivery Address:*\n${address}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n_Please confirm availability and dispatch details._`;
 }
 
 const waMessage = generateOrderMessage({
@@ -119,17 +96,14 @@ const waMessage = generateOrderMessage({
   address: 'Sunnambu Colony, Pallavaram, Tambaram, Tamil Nadu 600043'
 });
 
-console.log(waMessage);
-console.assert(waMessage.includes('MANAM Pure Cow Ghee — 500 ml × 2 = ₹630'), 'Ghee line format matches');
-console.assert(waMessage.includes('MANAM Uthukuli Butter — 200 g × 1 = ₹150'), 'Butter line format matches');
-console.assert(waMessage.includes('Total: ₹780'), 'Total line matches');
+console.assert(waMessage.includes('GOKULA AMUDHAM'), 'Message includes Gokula Amudham brand header');
+console.assert(waMessage.includes('500 ml × 2 = ₹630'), '500ml Ghee item line matches');
+console.assert(waMessage.includes('200 ml × 1 = ₹140'), '200ml Ghee item line matches');
+console.assert(waMessage.includes('Total Order Value:* ₹770'), 'Total line matches');
 console.log('✓ WhatsApp Message strict format verified!');
 
 // 6. Test 10-Step Production Journey Integrity
 console.log('\n--- 6. TESTING 10-STEP PRODUCTION JOURNEY INTEGRITY ---');
-import fs from 'fs';
-import path from 'path';
-
 console.assert(SITE_CONFIG.productionJourney, 'productionJourney configuration must exist');
 console.assert(SITE_CONFIG.productionJourney.steps.length === 10, 'Must have exactly 10 production steps');
 
@@ -142,15 +116,34 @@ SITE_CONFIG.productionJourney.steps.forEach((step, idx) => {
   
   // Verify image exists on disk
   const imgPath = path.resolve('public', step.image);
-  const existsInPublic = fs.existsSync(imgPath);
   const rootImgPath = path.resolve(step.image);
-  const existsInRoot = fs.existsSync(rootImgPath);
-  console.assert(existsInPublic || existsInRoot, `Step ${step.step} image missing: ${step.image}`);
+  const exists = fs.existsSync(imgPath) || fs.existsSync(rootImgPath);
+  console.assert(exists, `Step ${step.step} image missing: ${step.image}`);
   console.log(`✓ Step ${step.step}: ${step.title} (${step.stage}) ➔ Image verified`);
 });
 
-// 7. Test Price Box HTML Rules for 200 vs Discounted Packs
-console.log('\n--- 7. TESTING PRICE BOX HTML OUTPUT RULES ---');
+// 7. Verify Drive Assets & Brand Film on Disk
+console.log('\n--- 7. TESTING DRIVE BRAND ASSETS & VIDEO ON DISK ---');
+const requiredFiles = [
+  'public/assets/video/gokula-amudham-story.mp4',
+  'public/assets/images/gokula-video-poster.jpg',
+  'public/assets/images/gokula-product-hero.jpg',
+  'public/assets/images/gokula-product-range.jpg',
+  'public/assets/images/gokula-logo-full.jpg',
+  'public/assets/images/gokula-emblem.jpg',
+  'public/assets/images/gokula-favicon.png'
+];
+
+requiredFiles.forEach(file => {
+  const fullPath = path.resolve(file);
+  console.assert(fs.existsSync(fullPath), `Required asset missing: ${file}`);
+  const stat = fs.statSync(fullPath);
+  console.assert(stat.size > 100, `Asset ${file} is empty or corrupted (size: ${stat.size}B)`);
+  console.log(`✓ Asset verified on disk: ${file} (${(stat.size / 1024).toFixed(1)} KB)`);
+});
+
+// 8. Test Price Box HTML Rules for 200 ml vs Discounted Packs
+console.log('\n--- 8. TESTING PRICE BOX HTML OUTPUT RULES ---');
 function renderPriceBoxTest(variant) {
   const currency = '₹';
   if (variant.discountEligible) {
@@ -184,14 +177,6 @@ console.assert(!g200Html.includes('You Save'), 'FAIL: 200ml Ghee must NOT show Y
 console.assert(g200Html.includes('₹140'), '200ml Ghee must show ₹140');
 console.log('✓ 200 ml Ghee HTML strictly has NO strikethrough, NO 10% OFF, and NO You Save!');
 
-// 200 g Butter: MUST NOT have <del>, 10% OFF, or You Save
-const b200Html = renderPriceBoxTest(b200);
-console.assert(!b200Html.includes('<del'), 'FAIL: 200g Butter must NOT have <del> strikethrough!');
-console.assert(!b200Html.includes('10% OFF'), 'FAIL: 200g Butter must NOT show 10% OFF!');
-console.assert(!b200Html.includes('You Save'), 'FAIL: 200g Butter must NOT show You Save!');
-console.assert(b200Html.includes('₹150'), '200g Butter must show ₹150');
-console.log('✓ 200 g Butter HTML strictly has NO strikethrough, NO 10% OFF, and NO You Save!');
-
 // 500 ml Ghee: MUST have <del>350, 10% OFF, ₹315, and You Save ₹35
 const g500Html = renderPriceBoxTest(g500);
 console.assert(g500Html.includes('<del class="product-base-price">₹350</del>'), '500ml Ghee must strike through MRP 350');
@@ -201,5 +186,5 @@ console.assert(g500Html.includes('You Save ₹35'), '500ml Ghee must show You Sa
 console.log('✓ 500 ml Ghee HTML correctly shows struck-out MRP ₹350, 10% OFF, ₹315, and You Save ₹35!');
 
 console.log('\n====================================================');
-console.log('ALL FINAL QA CHECKS PASSED 100%! 🚀');
+console.log('ALL GOKULA AMUDHAM QA CHECKS PASSED 100%! 🚀');
 console.log('====================================================');
